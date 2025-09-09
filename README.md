@@ -42,8 +42,14 @@
 
 ##  TODO
 - [ ] Open training code in next week
+## Environment
+Same for DanceGRPO and MixGRPO
+```bash
+bash ./env_setup.sh 
+"
+```
 ## Inference
-Quick inference
+**Quick inference**
 1. Download our 'diffusion_pytorch_model.safetensors` in [https://huggingface.co/tencent/SRPO]
 2. load your FLUX cahe or use the 'black-forest-labs/FLUX.1-dev'[https://huggingface.co/black-forest-labs/FLUX.1-dev] 
 ```bash
@@ -66,7 +72,7 @@ image = pipe(
 ).images[0]
 ```
 
-Inference with out cases
+**Inference with out cases**
 ```bash
 torchrun --nnodes=1 --nproc_per_node=8 \
     --node_rank 0 \
