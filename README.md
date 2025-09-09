@@ -72,6 +72,7 @@ image = pipe(
 ```
 
 **Inference with out cases**
+1. Fill in model_path in vis.py
 ```bash
 torchrun --nnodes=1 --nproc_per_node=8 \
     --node_rank 0 \
