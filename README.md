@@ -42,8 +42,29 @@
 
 ##  TODO
 - [ ] Open training code in next week
-
 ## Inference
+Quick inference
+1. load your FLUX cahe or use the (black-forest-labs/FLUX.1-dev)[https://huggingface.co/black-forest-labs/FLUX.1-dev] 
+```bash
+prompt=''
+pipe = FluxPipeline.from_pretrained('FLUX_DIR',
+        torch_dtype=torch.bfloat16,
+        use_safetensors=True
+    ).to("cuda")
+state_dict = load_file("OUR_CHECKPOINT")
+pipe.transformer.load_state_dict(state_dict)
+image = pipe(
+    prompt,
+    guidance_scale=3.5,
+    height=1024,
+    width=1024,
+    num_inference_steps=infer_step,
+    max_sequence_length=512,
+    generator=generator
+).images[0]
+```
+
+Inference with out showcases
 ```bash
 torchrun --nnodes=1 --nproc_per_node=8 \
     --node_rank 0 \
