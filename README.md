@@ -46,7 +46,6 @@
 Same for DanceGRPO and MixGRPO
 ```bash
 bash ./env_setup.sh 
-"
 ```
 ## Inference
 **Quick inference**
