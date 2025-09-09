@@ -44,8 +44,10 @@
 - [ ] Open training code in next week
 ## Inference
 Quick inference
-1. load your FLUX cahe or use the (black-forest-labs/FLUX.1-dev)[https://huggingface.co/black-forest-labs/FLUX.1-dev] 
+1. Download our 'diffusion_pytorch_model.safetensors` in [https://huggingface.co/tencent/SRPO]
+2. load your FLUX cahe or use the 'black-forest-labs/FLUX.1-dev'[https://huggingface.co/black-forest-labs/FLUX.1-dev] 
 ```bash
+from diffusers import FluxPipeline
 prompt=''
 pipe = FluxPipeline.from_pretrained('FLUX_DIR',
         torch_dtype=torch.bfloat16,
@@ -64,7 +66,7 @@ image = pipe(
 ).images[0]
 ```
 
-Inference with out showcases
+Inference with out cases
 ```bash
 torchrun --nnodes=1 --nproc_per_node=8 \
     --node_rank 0 \
