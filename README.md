@@ -43,7 +43,7 @@
 ##  TODO
 - [ ] The training code is under internal review and will be open-sourced by this weekend at the latest.
 ## Environment
-Same for DanceGRPO and MixGRPO
+
 ```bash
 bash ./env_setup.sh 
 ```
