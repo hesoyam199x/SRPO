@@ -41,7 +41,7 @@
 - __[2025.9.8]__:  We released the paper, checkpoint, inference code
 
 ##  TODO
-- [ ] Open training code in next week
+- [ ] The training code is under internal review and will be open-sourced by this weekend at the latest.
 ## Environment
 Same for DanceGRPO and MixGRPO
 ```bash
