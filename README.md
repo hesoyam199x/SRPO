@@ -50,8 +50,13 @@ bash ./env_setup.sh
 ## Inference
 **Quick inference**
 1. Download our 'diffusion_pytorch_model.safetensors` in [https://huggingface.co/tencent/SRPO]
-2. load your FLUX cahe or use the 'black-forest-labs/FLUX.1-dev'[https://huggingface.co/black-forest-labs/FLUX.1-dev] 
 ```bash
+mkdir ./srpo
+huggingface-cli login
+huggingface-cli download --resume-download Tencent/SRPO diffusion_pytorch_model.safetensors --local-dir ./srpo/
+```
+2. load your FLUX cahe or use the 'black-forest-labs/FLUX.1-dev'[https://huggingface.co/black-forest-labs/FLUX.1-dev] 
+
 from diffusers import FluxPipeline
 prompt=''
 pipe = FluxPipeline.from_pretrained('FLUX_DIR',
