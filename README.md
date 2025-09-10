@@ -64,7 +64,7 @@ huggingface-cli download --resume-download  black-forest-labs/FLUX.1-dev --local
 3. Quick inference
 ```bash
 from diffusers import FluxPipeline
-prompt=''
+prompt='The Death of Ophelia by John Everett Millais, Pre-Raphaelite painting, Ophelia floating in a river surrounded by flowers, detailed natural elements, melancholic and tragic atmosphere'
 pipe = FluxPipeline.from_pretrained('./data/flux',
         torch_dtype=torch.bfloat16,
         use_safetensors=True
