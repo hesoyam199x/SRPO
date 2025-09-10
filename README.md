@@ -55,13 +55,13 @@ mkdir ./srpo
 huggingface-cli login
 huggingface-cli download --resume-download Tencent/SRPO diffusion_pytorch_model.safetensors --local-dir ./srpo/
 ```
-2. load your FLUX cahe or use the 'black-forest-labs/FLUX.1-dev'[https://huggingface.co/black-forest-labs/FLUX.1-dev]
+2. Load your FLUX cahe or use the 'black-forest-labs/FLUX.1-dev'[https://huggingface.co/black-forest-labs/FLUX.1-dev]
 ```bash
 mkdir ./data/flux
 huggingface-cli login
 huggingface-cli download --resume-download  black-forest-labs/FLUX.1-dev --local-dir ./data/flux
 ```
-3.Quick inference
+3. Quick inference
 ```bash
 from diffusers import FluxPipeline
 prompt=''
