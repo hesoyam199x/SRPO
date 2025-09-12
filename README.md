@@ -38,17 +38,23 @@
 
 ## 🔥 News
 
+- __[2025.9.12]__: We released the complete training code. We also share tips and experiences to help you train your models. You’re welcome to discuss and ask questions in the issues! 💬✨
 - __[2025.9.12]__:  We provide a standard workflow—feel free to use it in ComfyUI.
 - __[2025.9.8]__:   We released the paper, checkpoint, inference code.
 
 ## 📑 Open-source Plan
-- [ ] The training code is under internal review and will be open-sourced by this weekend at the latest.
+- [X] The training code is under internal review and will be open-sourced by this weekend at the latest.
+- [ ] Release a quantized version for the FLUX community.
+- [ ] Extend support to other models.
 
 ## 🛠️ Dependencies and Installation
 
 ```bash
+conda create -n SRPO python=3.10.16 -y
+conda activate SRPO
 bash ./env_setup.sh 
 ```
+💡 The environment dependency is basically the same as DanceGRPO
 
 ## 🤗 Download Models
 
@@ -56,7 +62,7 @@ bash ./env_setup.sh
 
 |       Model       |                           Huggingface Download URL                                      |  
 |:-----------------:|:---------------------------------------------------------------------------------------:|
-|    SRPO-bf16      |           [diffusion_pytorch_model](https://huggingface.co/tencent/SRPO/tree/main)      |
+|       SRPO        |           [diffusion_pytorch_model](https://huggingface.co/tencent/SRPO/tree/main)      |
 
 2. Download our `diffusion_pytorch_model.safetensors` in [https://huggingface.co/tencent/SRPO]
 ```bash
@@ -64,7 +70,7 @@ mkdir ./srpo
 huggingface-cli login
 huggingface-cli download --resume-download Tencent/SRPO diffusion_pytorch_model.safetensors --local-dir ./srpo/
 ```
-3. Load your FLUX cahe or use the `black-forest-labs/FLUX.1-dev`[https://huggingface.co/black-forest-labs/FLUX.1-dev]
+3. Load your FLUX cache or use the `black-forest-labs/FLUX.1-dev`[https://huggingface.co/black-forest-labs/FLUX.1-dev]
 ```bash
 mkdir ./data/flux
 huggingface-cli login
@@ -114,6 +120,74 @@ torchrun --nnodes=1 --nproc_per_node=8 \
     --rdzv_id 456 \
     vis.py 
 ```
+
+## 🚚 Training
+### Prepare Training Model
+1. Pretrain Model: download the FLUX.dev.1 checkpoints from [huggingface](https://huggingface.co/black-forest-labs/FLUX.1-dev) to `./data/flux`.
+```bash
+mkdir data
+mkdir ./data/flux
+huggingface-cli login
+huggingface-cli download --resume-download  black-forest-labs/FLUX.1-dev --local-dir ./data/flux
+```
+2. Reward Model: download the HPS-v2.1(HPS_v2.1_compressed.pt) and CLIP H-14 checkpoints from [huggingface](https://huggingface.co/xswu/HPSv2/tree/main) to `./hps_ckpt`.
+```bash
+mkdir ./data/hps_ckpt
+huggingface-cli login
+huggingface-cli download --resume-download xswu/HPSv2 HPS_v2.1_compressed.pt --local-dir ./data/hps_ckpt
+huggingface-cli download --resume-download laion/CLIP-ViT-H-14-laion2B-s32B-b79K open_clip_pytorch_model.bin --local-dir ./data/hps_ckpt
+```
+3. (Optional) Reward Model: download the PickScore checkpoint from [huggingface](https://huggingface.co/yuvalkirstain/PickScore_v1) to `./data/ps`.
+```bash
+mkdir ./data/ps
+huggingface-cli login
+python ./scripts/huggingface/download_hf.py --repo_id yuvalkirstain/PickScore_v1  --local_dir ./data/ps
+python ./scripts/huggingface/download_hf.py --repo_id laion/CLIP-ViT-H-14-laion2B-s32B-b79K --local_dir ./data/clip
+```
+
+### Prepare Training Data
+
+```bash
+# Write training prompts into ./prompts.txt. Note: For online RL, no image-text pairs are needed—only inference text.
+via ./prompts.txt
+# Pre-extract text embeddings from your custom training dataset—this boosts training efficiency.
+bash scripts/preprocess/preprocess_flux_rl_embeddings.sh
+cp videos2caption2.json  ./data/rl_embeddings
+```
+
+### Full-parameter Training
+
+- HPS-v2.1 serves as the Reward Model in our reinforcement learning process.
+    ```bash 
+    bash scripts/finetune/SRPO_training_hpsv2.sh
+    ```
+- (Optional) PickScore serves as the Reward Model in our reinforcement learning process.
+    ```bash
+    bash scripts/finetune/SRPO_training_ps.sh
+    ```
+    > ⚠️ Current control words are designed for HPS-v2.1, so training with PickScore may yield suboptimal results vs. HPS due to this mismatch. If using PickScore as reward model, redesign control words—see the paper for details.
+
+- Run distributed training with pdsh.
+  ```bash
+    #!/bin/bash
+    echo "$NODE_IP_LIST" | tr ',' '\n' | sed 's/:8$//' | grep -v '1.1.1.1' > /tmp/pssh.hosts
+    node_ip=$(paste -sd, /tmp/pssh.hosts)
+    pdsh -w $node_ip "conda activate SRPO;cd <project path>; bash scripts/finetune/SRPO_training_hpsv2.sh"
+  ```
+### How to Support Custom Models
+1. Modify `preprocess_flux_embedding.py` and `latent_flux_rl_datasets.py` to pre-extract text embeddings from your custom training dataset—this boosts training efficiency.
+2. Adjust `args.vis_sampling_step` to modify sigma_schedule. Typically, this value matches the model's regular inference steps.
+3. Direct-propagation needs significant GPU memory. Enabling VAE gradient checkpointing before reward calculation reduces this greatly.
+4. If implementing outside FastVideo, first disable the inversion branch to check for reward hacking—its presence likely indicates correct implementation.
+5. Pure Direct-Align works for SRPO-unsupported tasks (e.g., OCR, Image Editing) with minimal code changes.
+
+### Hyperparameter Recommendations
+For best results, use these settings as a starting point and adjust for your model/dataset:
+
+1. **Batch_size**: Larger sizes generally improve quality more. For Flux.dev.1 reinforcement under current settings, 32 works well.
+2. **Learning_rate**: 1e-5 to 1e-6 works for most models.
+3. **Train_timestep**: Focus on early-to-middle diffusion stages. Too early (e.g., sigmas>0.99) causes structural distortions; too late encourages color-based reward hacking.
+4. **Discount_inv** & **Discount_denoise**: Let discount_inv = [a, b], discount_denoise = [c, d]. Preserve structure by setting c slightly > b (avoids early layout corruption). Fix color oversaturation by setting a slightly > d (tempers aggressive tones). Current hyperparameters work for most in-house models and are a good baseline.
 
 ## 🎉Acknowledgement
 
