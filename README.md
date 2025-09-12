@@ -52,7 +52,7 @@ bash ./env_setup.sh
 
 ## 🤗 Download Models
 
-1. model cards
+1. Model Cards
 
 |       Model       |                           Huggingface Download URL                                      |  
 |:-----------------:|:---------------------------------------------------------------------------------------:|
@@ -115,7 +115,7 @@ torchrun --nnodes=1 --nproc_per_node=8 \
     vis.py 
 ```
 
-## Acknowledgement
+## 🎉Acknowledgement
 
 We referenced the following works, and appreciate their contributions to the community.
 
