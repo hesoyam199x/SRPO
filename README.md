@@ -209,3 +209,7 @@ If you find SRPO useful for your research and applications, please cite using th
       url={https://arxiv.org/abs/2509.06942}, 
 }
 ```
+
+
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=Tencent-Hunyuan/SRPO&type=Date)](https://www.star-history.com/#Tencent-Hunyuan/SRPO&Date)
