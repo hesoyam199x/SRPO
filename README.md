@@ -106,7 +106,7 @@ image = pipe(
     guidance_scale=3.5,
     height=1024,
     width=1024,
-    num_inference_steps=infer_step,
+    num_inference_steps=50,
     max_sequence_length=512,
     generator=generator
 ).images[0]
