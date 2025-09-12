@@ -30,38 +30,60 @@
 
 ![head](assets/head.jpg)
 
-## Key Features
+## 🎉 Key Features
 1. **Direct Align**: We introduce a new sampling strategy for diffusion fine-tuning that can effectively restore highly noisy images, leading to an optimization process that is more stable and less computationally demanding, especially during the initial timesteps.
 2. **Faster Training**:   By rolling out only a single image and optimizing directly with analytical gradients—a key distinction from GRPO—our method achieves significant performance improvements for FLUX.1.dev in under 10 minutes of training. To further accelerate the process, our method supports replacing online rollouts entirely with a small dataset of real images; we find that fewer than 1500 images are sufficient to effectively train FLUX.1.dev.
 3. **Free of Reward Hacking**: We have improved the training strategy for method that direct backpropagation on reward signal (such as ReFL and DRaFT). Moreover, we directly regularize the model using negative rewards, without the need for KL divergence or a separate reward system. In our experiments, this approach achieves comparable performance with multiple different rewards, improving the perceptual quality of FLUX.1.dev without suffering from reward hacking issues, such as overfitting to color or oversaturation preferences.
 4. **Potential for Controllable Fine-tuning**: For the first time in online RL, we incorporate dynamically controllable text conditions, enabling on-the-fly adjustment of reward preference towards styles within the scope of the reward model.
 
-## Updates
+## 🔥 News
 
-- __[2025.9.8]__:  We released the paper, checkpoint, inference code
+- __[2025.9.12]__:  We provide a standard workflow—feel free to use it in ComfyUI.
+- __[2025.9.8]__:   We released the paper, checkpoint, inference code.
 
-##  TODO
+## 📑 Open-source Plan
 - [ ] The training code is under internal review and will be open-sourced by this weekend at the latest.
-## Environment
+
+## 🛠️ Dependencies and Installation
 
 ```bash
 bash ./env_setup.sh 
 ```
-## Inference
-**Quick inference**
-1. Download our 'diffusion_pytorch_model.safetensors` in [https://huggingface.co/tencent/SRPO]
+
+## 🤗 Download Models
+
+1. model cards
+
+|       Model       |                           Huggingface Download URL                                      |  
+|:-----------------:|:---------------------------------------------------------------------------------------:|
+|    SRPO-bf16      |           [diffusion_pytorch_model](https://huggingface.co/tencent/SRPO/tree/main)      |
+
+2. Download our `diffusion_pytorch_model.safetensors` in [https://huggingface.co/tencent/SRPO]
 ```bash
 mkdir ./srpo
 huggingface-cli login
 huggingface-cli download --resume-download Tencent/SRPO diffusion_pytorch_model.safetensors --local-dir ./srpo/
 ```
-2. Load your FLUX cahe or use the 'black-forest-labs/FLUX.1-dev'[https://huggingface.co/black-forest-labs/FLUX.1-dev]
+3. Load your FLUX cahe or use the `black-forest-labs/FLUX.1-dev`[https://huggingface.co/black-forest-labs/FLUX.1-dev]
 ```bash
 mkdir ./data/flux
 huggingface-cli login
 huggingface-cli download --resume-download  black-forest-labs/FLUX.1-dev --local-dir ./data/flux
 ```
-3. Quick inference
+
+## 🔑 Inference
+
+### Using ComfyUI
+
+You can use it in [ComfyUI](https://github.com/comfyanonymous/ComfyUI).
+
+Load the following image in ComfyUI to get the workflow, or load the JSON file directly [SRPO-workflow](comfyui/SRPO-workflow.json):
+
+Tip: The workflow JSON info was added to the image file.
+
+![Example](comfyui/SRPO-workflow.png)
+
+### Quick start
 ```bash
 from diffusers import FluxPipeline
 from safetensors.torch import load_file
@@ -84,16 +106,23 @@ image = pipe(
 ).images[0]
 ```
 
-**Inference with our cases**
-1. Replace model_path in vis.py
+Inference with our cases. Replace `model_path` in `vis.py`.
 ```bash
 torchrun --nnodes=1 --nproc_per_node=8 \
     --node_rank 0 \
     --rdzv_endpoint $CHIEF_IP:29502 \
     --rdzv_id 456 \
-    vis.py \
+    vis.py 
 ```
-## BiB
+
+## Acknowledgement
+
+We referenced the following works, and appreciate their contributions to the community.
+
+- [FastVideo](https://github.com/hao-ai-lab/FastVideo)
+- [DanceGRPO](https://github.com/XueZeyue/DanceGRPO)
+
+## 🔗 BibTeX
 If you find SRPO useful for your research and applications, please cite using this BibTeX:
 ```
 @misc{shen2025directlyaligningdiffusiontrajectory,
