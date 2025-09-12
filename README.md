@@ -38,9 +38,9 @@
 
 ## 🔥 News
 
-- __[2025.9.12]__: We released the complete training code. We also share tips and experiences to help you train your models. You’re welcome to discuss and ask questions in the issues! 💬✨
-- __[2025.9.12]__:  We provide a standard workflow—feel free to use it in ComfyUI.
-- __[2025.9.8]__:   We released the paper, checkpoint, inference code.
+- __[2025.9.12]__:  🎉 We released the complete training code. We also share tips and experiences to help you train your models. You’re welcome to discuss and ask questions in the issues! 💬✨
+- __[2025.9.12]__:  🎉 We provide a standard workflow—feel free to use it in ComfyUI.
+- __[2025.9.8]__:   🎉 We released the paper, checkpoint, inference code.
 
 ## 📑 Open-source Plan
 - [X] The training code is under internal review and will be open-sourced by this weekend at the latest.
