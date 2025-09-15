@@ -6,7 +6,7 @@
   <a href='https://tencent.github.io/srpo-project-page/'><img src='https://img.shields.io/badge/%F0%9F%92%BB_Project-SRPO-blue'></a> &nbsp;
 </div>
 <div align="center">
-  Xiangwei Shen<sup>1,2*</sup>,
+  Xiangwei Shen<sup>1,2,3*</sup>,
   <a href="https://scholar.google.com/citations?user=Lnr1FQEAAAAJ&hl=zh-CN" target="_blank"><b>Zhimin Li</b></a><sup>1*</sup>,
   <a href="https://scholar.google.com.hk/citations?user=Fz3X5FwAAAAJ" target="_blank"><b>Zhantao Yang</b></a><sup>1</sup>, 
   <a href="https://shiyi-zh0408.github.io/" target="_blank"><b>Shiyi Zhang</b></a><sup>3</sup>,
@@ -165,7 +165,7 @@ cp videos2caption2.json  ./data/rl_embeddings
     ```bash
     bash scripts/finetune/SRPO_training_ps.sh
     ```
-    > ⚠️ Current control words are designed for HPS-v2.1, so training with PickScore may yield suboptimal results vs. HPS due to this mismatch. If using PickScore as reward model, redesign control words—see the paper for details.
+    > ⚠️ Current control words are designed for HPS-v2.1, so training with PickScore may yield suboptimal results vs. HPS due to this mismatch. 
 
 - Run distributed training with pdsh.
   ```bash
