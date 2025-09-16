@@ -13,9 +13,9 @@
   Yingfang Zhang<sup>1</sup>,
   Donghao Li<sup>1</sup>,
   <br>
-  <a href="https://scholar.google.com/citations?user=VXQV5xwAAAAJ&hl=en" target="_blank"><b>Chunyu Wang</b></a><sup>1</sup>,
+  <a href="https://scholar.google.com/citations?user=VXQV5xwAAAAJ&hl=en" target="_blank"><b>Chunyu Wang</b></a><sup>1✝</sup>,
   <a href="https://openreview.net/profile?id=%7EQinglin_Lu2" target="_blank"><b>Qinglin Lu</b></a><sup>1</sup>,
-  <a href="https://andytang15.github.io" target="_blank"><b>Yansong Tang</b></a><sup>3,✝</sup>
+  <a href="https://andytang15.github.io" target="_blank"><b>Yansong Tang</b></a><sup>3,✉️</sup>
 </div>
 <div align="center">
   <sup>1</sup>Hunyuan, Tencent 
@@ -25,7 +25,8 @@
   <sup>3</sup>Shenzhen International Graduate School, Tsinghua University 
   <br>
   <sup>*</sup>Equal contribution 
-  <sup>✝</sup>Corresponding author
+  <sup>✝</sup>Project lead 
+  <sup>✉️</sup>Corresponding author
 </div>
 
 ![head](assets/head.jpg)
